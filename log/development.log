@@ -893,3 +893,1093 @@ Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
 NoMethodError (undefined method `questions' for nil:NilClass):
   
 app/controllers/surveys_controller.rb:66:in `answers'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8037149723500076970)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8037149723500076970)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 00:38:19 -0700
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms)
+
+
+  
+NoMethodError (undefined method `questions' for nil:NilClass):
+  
+app/controllers/surveys_controller.rb:66:in `answers'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 00:41:20 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.5ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  Rendered surveys/answers.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 4.3ms)
+
+
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:34: syntax error, unexpected keyword_ensure, expecting end-of-input
+          ensure
+                ^):
+  
+app/views/surveys/answers.html.erb:34: syntax error, unexpected keyword_ensure, expecting end-of-input
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 00:43:21 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.6ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.7ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.7ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (222.3ms)
+Completed 500 Internal Server Error in 230ms (ActiveRecord: 11.5ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `q' for #<#<Class:0x007fd383b14af0>:0x007fd3848f2d70>):
+    15:         <tr>
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= q.fields_for :questions, question do |q| -%>
+    19:             <%= a.text_area :content %>
+    20:             <%= a.hidden_field :participant_id, participant.id %>
+    21: 
+  
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273219403040'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273219403040'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__2982463126477493047_70273219403040'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__2982463126477493047_70273219403040'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 00:47:47 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.4ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (81.3ms)
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 3.8ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= f.fields_for :questions, question do |q| -%>
+    19:             <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| -%>
+    20:               <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:             <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (5 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__2982463126477493047_70273204909820'
+Started POST "/__web_console/repl_sessions/bd97dd3104dacbfbc51934177a547583/trace" for 127.0.0.1 at 2017-08-29 00:48:13 -0700
+Started POST "/__web_console/repl_sessions/bd97dd3104dacbfbc51934177a547583/trace" for 127.0.0.1 at 2017-08-29 00:48:17 -0700
+Started GET "/" for 127.0.0.1 at 2017-08-29 01:09:39 -0700
+  [1m[35m (30.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 53ms (Views: 28.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-29 01:09:45 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 612ms (Views: 526.2ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 01:09:46 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 01:09:46 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/3" for 127.0.0.1 at 2017-08-29 01:09:54 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (1.5ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 83ms (Views: 36.3ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-29 01:09:59 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (1.7ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (4.6ms)
+Completed 200 OK in 66ms (Views: 61.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/surveys/4" for 127.0.0.1 at 2017-08-29 01:10:01 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSurvey Load (1.0ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 53ms (Views: 44.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-29 01:10:03 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 50ms (Views: 46.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/questions" for 127.0.0.1 at 2017-08-29 01:10:09 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/questions"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/participants" for 127.0.0.1 at 2017-08-29 01:10:19 -0700
+Processing by ParticipantsController#index as HTML
+  Rendering participants/index.html.erb within layouts/application
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  Rendered participants/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 59ms (Views: 26.3ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 01:10:19 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 01:10:19 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:10:34 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (77.7ms)
+Completed 500 Internal Server Error in 139ms (ActiveRecord: 7.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= f.fields_for :questions, question do |q| -%>
+    19:             <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| -%>
+    20:               <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:             <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (5 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230088372620'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:14:06 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.5ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (8.9ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 1.3ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= f.fields_for :questions, question do |q| -%>
+    19:             <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| -%>
+    20:               <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:             <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (5 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230094314980'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:16:49 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (40.1ms)
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 9.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= f.fields_for :questions, question do |q| -%>
+    19:             <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| -%>
+    20:               <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:             <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (5 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230094247860'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:16:51 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (11.4ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:           <%= f.fields_for :questions, question do |q| -%>
+    19:             <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a| -%>
+    20:               <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:             <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (5 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230102009120'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:20:48 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (74.7ms)
+Completed 200 OK in 269ms (Views: 265.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 01:20:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 01:20:49 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:27:52 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 57ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (no block given (yield)):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%> -->
+    19:               <%= q.fields_for :answers, question.answers -%> -->
+    20:                 <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+    22:           <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230086714200'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230086714200'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230086714200'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230086714200'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230086714200'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:28:17 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (1.0ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (10.3ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 2.0ms)
+
+
+  
+ActionView::Template::Error (no block given (yield)):
+    15:         <tr>
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%>
+    19:               <%= q.fields_for :answers, question.answers -%>
+    20:                <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+  
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230045991320'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230045991320'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230045991320'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230045991320'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230045991320'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:28:24 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (7.1ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 1.1ms)
+
+
+  
+ActionView::Template::Error (no block given (yield)):
+    15:         <tr>
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%>
+    19:               <%= q.fields_for :answers, question.answers -%>
+    20:                <%= a.text_area :content %>
+    21:               <%= a.hidden_field :participant_id, participant.id %>
+  
+app/views/surveys/answers.html.erb:18:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230046355880'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230046355880'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230046355880'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230046355880'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230046355880'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:29:03 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  Rendered surveys/answers.html.erb within layouts/application (0.7ms)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:36: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/surveys/answers.html.erb:36: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:29:21 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (211.6ms)
+Completed 500 Internal Server Error in 217ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `f' for #<#<Class:0x007fbf6fa3e6d0>:0x007fbf70bef6e0>):
+    27:     </tbody>
+    28:   </table>
+    29:   <% end -%>
+    30:   <div class="actions">
+    31:     <%= f.submit %>
+    32:   </div>
+  
+app/views/surveys/answers.html.erb:30:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230103531740'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:30:06 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 176ms (Views: 173.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 01:30:07 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 01:30:07 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:30:29 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.5ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.6ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (213.7ms)
+Completed 500 Internal Server Error in 220ms (ActiveRecord: 1.4ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `a' for #<#<Class:0x007fbf6fa3e6d0>:0x007fbf70a8c5c8>):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%>
+    19:               <%#= q.fields_for :answers, question.answers -%>
+    20:                <%= a.text_area :content %>
+    21:               <%#= a.hidden_field :participant_id, participant.id %>
+    22:           <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102796320'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102796320'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230102796320'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230102796320'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230102796320'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:30:46 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  Rendered surveys/answers.html.erb within layouts/application (205.1ms)
+Completed 500 Internal Server Error in 213ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `a' for #<#<Class:0x007fbf6fa3e6d0>:0x007fbf6fb37ac8>):
+    16:           <td><%= question.content %></td>
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%>
+    19:               <%#= q.fields_for :answers, question.answers -%>
+    20:                <%= a.text_area :content %>
+    21:               <%#= a.hidden_field :participant_id, participant.id %>
+    22:           <% end -%>
+  
+app/views/surveys/answers.html.erb:19:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094766800'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094766800'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230094766800'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230094766800'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230094766800'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:33:25 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  Rendered surveys/answers.html.erb within layouts/application (52.9ms)
+Completed 500 Internal Server Error in 60ms (ActiveRecord: 0.2ms)
+
+
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:25: syntax error, unexpected '>'
+'.freeze;       end />
+                      ^
+/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:27: unknown regexp options - tabl
+/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:28: syntax error, unexpected '<'
+  <% end 
+   ^
+/Users/apprentice/DBC/phase_3/surveyapp/app/views/surveys/answers.html.erb:35: syntax error, unexpected keyword_ensure, expecting keyword_end
+          ensure
+                ^):
+  
+app/views/surveys/answers.html.erb:25: syntax error, unexpected '>'
+app/views/surveys/answers.html.erb:27: unknown regexp options - tabl
+app/views/surveys/answers.html.erb:28: syntax error, unexpected '<'
+app/views/surveys/answers.html.erb:35: syntax error, unexpected keyword_ensure, expecting keyword_end
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:33:46 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.4ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.3ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (20.7ms)
+Completed 200 OK in 43ms (Views: 39.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 01:33:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 01:33:47 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:35:40 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.4ms)[0m  [1m[34mSELECT  "answers".* FROM "answers" WHERE "answers"."question_id" = $1 AND "answers"."participant_id" = 1 LIMIT $2[0m  [["question_id", 12], ["LIMIT", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (10.2ms)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 1.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `merge' for 1:Integer):
+    17:           <td>
+    18:              <%= f.fields_for :questions, question do |q| -%>
+    19: 
+    20:               <%= q.fields_for :answers, question.answers.find_or_initialize_by(participant: participant) do |a|-%>
+    21:                <%= a.text_area :content %>
+    22:               <%= a.hidden_field :participant_id, participant.id %>
+    23:           <% end -%>
+  
+app/views/surveys/answers.html.erb:20:in `block (5 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+app/views/surveys/answers.html.erb:19:in `block (4 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+app/views/surveys/answers.html.erb:18:in `block (3 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+app/views/surveys/answers.html.erb:14:in `block (2 levels) in _app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+app/views/surveys/answers.html.erb:4:in `block in _app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+app/views/surveys/answers.html.erb:3:in `_app_views_surveys_answers_html_erb__1502659801508807753_70230047915840'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 01:37:26 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.2ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/surveys/4/answers" for 127.0.0.1 at 2017-08-29 01:37:41 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 4]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 31ms (Views: 27.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 02:00:05 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 161ms (Views: 150.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 02:00:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 02:00:06 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/" for 127.0.0.1 at 2017-08-29 02:00:42 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 52ms (Views: 19.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/3" for 127.0.0.1 at 2017-08-29 02:00:49 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 66ms (Views: 20.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 02:00:58 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.1ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.2ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.3ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 02:19:00 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+Completed 400 Bad Request in 38ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: survey):
+  
+app/controllers/surveys_controller.rb:79:in `survey_params'
+app/controllers/surveys_controller.rb:67:in `answers'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 02:19:20 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: survey):
+  
+app/controllers/surveys_controller.rb:79:in `survey_params'
+app/controllers/surveys_controller.rb:67:in `answers'
+Started GET "/surveys/3/answers" for 127.0.0.1 at 2017-08-29 02:19:28 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 3]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 12]]
+  Rendered surveys/answers.html.erb within layouts/application (38.3ms)
+Completed 200 OK in 186ms (Views: 132.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/fonts/roboto/Roboto-Regular.woff2" for 127.0.0.1 at 2017-08-29 02:19:29 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff2"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/fonts/roboto/Roboto-Regular.woff" for 127.0.0.1 at 2017-08-29 02:19:29 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/fonts/roboto/Roboto-Regular.woff"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys/4/answers" for 127.0.0.1 at 2017-08-29 02:19:36 -0700
+Processing by SurveysController#answers as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering surveys/answers.html.erb within layouts/application
+  [1m[36mParticipant Load (0.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  [1m[36mQuestion Load (0.1ms)[0m  [1m[34mSELECT "questions".* FROM "questions" WHERE "questions"."survey_id" = $1[0m  [["survey_id", 4]]
+  [1m[36mAnswer Load (0.2ms)[0m  [1m[34mSELECT "answers".* FROM "answers" WHERE "answers"."question_id" = $1[0m  [["question_id", 1]]
+  Rendered surveys/answers.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 36ms (Views: 31.1ms | ActiveRecord: 0.9ms)
+
+

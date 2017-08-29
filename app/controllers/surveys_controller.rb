@@ -15,6 +15,7 @@ class SurveysController < ApplicationController
   # GET /surveys/new
   def new
     @survey = Survey.new
+    @survey.questions.build
   end
 
   # GET /surveys/1/edit
@@ -63,6 +64,7 @@ class SurveysController < ApplicationController
 
   def answers
     @participants = Participant.all
+    @survey = Survey.find(params[:id])
     @questions = @survey.questions
   end
 
