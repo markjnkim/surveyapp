@@ -40,3 +40,235 @@ FOREIGN KEY ("participant_id")
   [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8037149723500076970)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2017-08-28 23:26:20 -0700
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/apprentice/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/apprentice/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/railties-5.1.3/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 59ms (Views: 28.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/survey" for 127.0.0.1 at 2017-08-28 23:26:53 -0700
+  
+ActionController::RoutingError (No route matches [GET] "/survey"):
+  
+actionpack (5.1.3) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.3) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.3) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.3) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:26:56 -0700
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/surveys/new" for 127.0.0.1 at 2017-08-28 23:28:00 -0700
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/participants" for 127.0.0.1 at 2017-08-28 23:28:09 -0700
+Processing by ParticipantsController#index as HTML
+  Rendering participants/index.html.erb within layouts/application
+  [1m[36mParticipant Load (11.3ms)[0m  [1m[34mSELECT "participants".* FROM "participants"[0m
+  Rendered participants/index.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 2672ms (Views: 2472.6ms | ActiveRecord: 37.4ms)
+
+
+Started GET "/participants/new" for 127.0.0.1 at 2017-08-28 23:28:18 -0700
+Processing by ParticipantsController#new as HTML
+  Rendering participants/new.html.erb within layouts/application
+  Rendered participants/_form.html.erb (113.1ms)
+  Rendered participants/new.html.erb within layouts/application (115.8ms)
+Completed 200 OK in 181ms (Views: 146.1ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/participants/new" for 127.0.0.1 at 2017-08-28 23:29:51 -0700
+Processing by ParticipantsController#new as HTML
+  Rendering participants/new.html.erb within layouts/application
+  Rendered participants/_form.html.erb (1.5ms)
+  Rendered participants/new.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 26ms (Views: 24.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/participants/new" for 127.0.0.1 at 2017-08-28 23:29:53 -0700
+Processing by ParticipantsController#new as HTML
+  Rendering participants/new.html.erb within layouts/application
+  Rendered participants/_form.html.erb (1.4ms)
+  Rendered participants/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 20ms (Views: 18.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/participants/new" for 127.0.0.1 at 2017-08-28 23:30:03 -0700
+Processing by ParticipantsController#new as HTML
+  Rendering participants/new.html.erb within layouts/application
+  Rendered participants/_form.html.erb (1.4ms)
+  Rendered participants/new.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:30:16 -0700
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:30:39 -0700
+  
+SyntaxError (/Users/apprentice/DBC/phase_3/surveyapp/app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/controllers/surveys_controller.rb:83: syntax error, unexpected keyword_end, expecting end-of-input
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:32:21 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (12.8ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 42ms (Views: 19.7ms | ActiveRecord: 14.1ms)
+
+
+Started GET "/surveys/new" for 127.0.0.1 at 2017-08-28 23:32:26 -0700
+Processing by SurveysController#new as HTML
+  Rendering surveys/new.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (3.3ms)
+  Rendered surveys/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 54ms (Views: 35.5ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/surveys/new" for 127.0.0.1 at 2017-08-28 23:32:33 -0700
+Processing by SurveysController#new as HTML
+  Rendering surveys/new.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (2.7ms)
+  Rendered surveys/new.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 45ms (Views: 42.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/surveys" for 127.0.0.1 at 2017-08-28 23:33:53 -0700
+Processing by SurveysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GUo1JEvfL7Am2nlHw+naQnmft1tCbIUUWeHzyLeujFvpuyofVc3f81iC0dkIVBgkpK9XmtWwAbZTEW7j3gorQg==", "survey"=>{"name"=>"How many licks does it take to get to the center of a tootsie roll pop?"}, "commit"=>"Create Survey"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "surveys" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "How many licks does it take to get to the center of a tootsie roll pop?"], ["created_at", "2017-08-29 06:33:53.592954"], ["updated_at", "2017-08-29 06:33:53.592954"]]
+  [1m[35m (14.9ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/surveys/1
+Completed 302 Found in 20ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/surveys/1" for 127.0.0.1 at 2017-08-28 23:33:53 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 130ms (Views: 71.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/surveys/1/edit" for 127.0.0.1 at 2017-08-28 23:33:59 -0700
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSurvey Load (0.8ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (1.6ms)
+  Rendered surveys/edit.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 65ms (Views: 17.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/surveys/1" for 127.0.0.1 at 2017-08-28 23:34:01 -0700
+Processing by SurveysController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MqJ2vLMiM8tYItnx6UnFQwxQewacJ1tLhcAevXEzJP3C01FjydXEa+Iqiw3fcpelow91yjjq7WHP6hgz30tARg==", "survey"=>{"name"=>"How many licks does it take to get to the center of a tootsie roll pop?"}, "commit"=>"Update Survey", "id"=>"1"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/surveys/1
+Completed 302 Found in 5ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/surveys/1" for 127.0.0.1 at 2017-08-28 23:34:02 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSurvey Load (0.3ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 130ms (Views: 127.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:34:03 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (2.8ms)
+Completed 200 OK in 64ms (Views: 20.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/surveys/1/edit" for 127.0.0.1 at 2017-08-28 23:34:16 -0700
+Processing by SurveysController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mSurvey Load (0.4ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering surveys/edit.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (3.7ms)
+  Rendered surveys/edit.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 58ms (Views: 50.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:34:21 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 69ms (Views: 65.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys/new" for 127.0.0.1 at 2017-08-28 23:34:22 -0700
+Processing by SurveysController#new as HTML
+  Rendering surveys/new.html.erb within layouts/application
+  Rendered surveys/_form.html.erb (2.1ms)
+  Rendered surveys/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 91ms (Views: 48.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/surveys" for 127.0.0.1 at 2017-08-28 23:35:56 -0700
+Processing by SurveysController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qr+dWOsJ1yn6c6S+v0hLdQUV/qDEcveTowFsI8/GyARaToJj9RsnaoQrDCB09YkT2CUeYVOuczGp8fEIpmJvHQ==", "survey"=>{"name"=>"What is the percent chance of you eating food recently dropped on the ground when no one's around? I'm not talking about wet, slimy stuff like ham but something dry, like a cracker or cookie."}, "commit"=>"Create Survey"}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "surveys" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "What is the percent chance of you eating food recently dropped on the ground when no one's around? I'm not talking about wet, slimy stuff like ham but something dry, like a cracker or cookie."], ["created_at", "2017-08-29 06:35:56.660416"], ["updated_at", "2017-08-29 06:35:56.660416"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/surveys/2
+Completed 302 Found in 5ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/surveys/2" for 127.0.0.1 at 2017-08-28 23:35:56 -0700
+Processing by SurveysController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT  "surveys".* FROM "surveys" WHERE "surveys"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering surveys/show.html.erb within layouts/application
+  Rendered surveys/show.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 113ms (Views: 86.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/surveys" for 127.0.0.1 at 2017-08-28 23:35:59 -0700
+Processing by SurveysController#index as HTML
+  Rendering surveys/index.html.erb within layouts/application
+  [1m[36mSurvey Load (0.2ms)[0m  [1m[34mSELECT "surveys".* FROM "surveys"[0m
+  Rendered surveys/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 87ms (Views: 27.6ms | ActiveRecord: 0.2ms)
+
+
